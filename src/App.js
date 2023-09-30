@@ -19,7 +19,12 @@ function App() {
         },
     ];
 
-    return <Costs cost={cost}></Costs>;
+    return (
+        <div>
+            <h1>Expense application</h1>
+            <Costs cost={cost}></Costs>{' '}
+        </div>
+    );
 }
 
 export default App;
