@@ -1,4 +1,5 @@
 import Costs from './components/Costs';
+import './index.css';
 
 function App() {
     const cost = [
