@@ -1,4 +1,4 @@
-import CostItem from './components/CostItem';
+import Costs from './components/Costs';
 
 function App() {
     const cost = [
@@ -19,26 +19,7 @@ function App() {
         },
     ];
 
-    return (
-        <div>
-            <h1>Hallo word!</h1>
-            <CostItem
-                date={cost[0].date}
-                description={cost[0].description}
-                amount={cost[0].amount}
-            ></CostItem>
-            <CostItem
-                date={cost[1].date}
-                description={cost[1].description}
-                amount={cost[1].amount}
-            ></CostItem>
-            <CostItem
-                date={cost[2].date}
-                description={cost[2].description}
-                amount={cost[2].amount}
-            ></CostItem>
-        </div>
-    );
+    return <Costs cost={cost}></Costs>;
 }
 
 export default App;
