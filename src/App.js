@@ -1,4 +1,4 @@
-import Costs from './components/Costs';
+import Costs from './components/Costs/Costs';
 import './index.css';
 
 function App() {
