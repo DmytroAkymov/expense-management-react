@@ -1,4 +1,6 @@
+import NewCost from './components/NewCost/NewCost';
 import Costs from './components/Costs/Costs';
+
 import './index.css';
 
 function App() {
@@ -22,7 +24,7 @@ function App() {
 
     return (
         <div>
-            <h1>Expense application</h1>
+            <NewCost />
             <Costs cost={cost}></Costs>{' '}
         </div>
     );
