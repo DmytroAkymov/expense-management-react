@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import './CostForm.css';
 
-const CostForm = () => {
+const CostForm = (props) => {
     const [userInput, setUserInput] = useState({
-        name: '',
-        amount: '',
-        date: '',
+        inputName: '',
+        inputAmount: '',
+        inputDate: '',
     });
 
     const nameChangeHandler = (event) => {
@@ -17,7 +17,7 @@ const CostForm = () => {
         setUserInput((previousState) => {
             return {
                 ...previousState,
-                name: event.target.value,
+                inputName: event.target.value,
             };
         });
     };
@@ -25,28 +25,48 @@ const CostForm = () => {
     const amountChangeHandler = (event) => {
         setUserInput({
             ...userInput,
-            amount: event.target.value,
+            inputAmount: event.target.value,
         });
     };
 
     const dateChangeHandler = (event) => {
         setUserInput({
             ...userInput,
-            date: event.target.value,
+            inputDate: event.target.value,
+        });
+    };
+
+    const submitHandler = (event) => {
+        event.preventDefault();
+        const costDate = {
+            name: userInput.inputName,
+            amount: userInput.inputAmount,
+            date: new Date(userInput.inputDate),
+        };
+        props.OnSaveCostData(costDate);
+        setUserInput({
+            inputName: '',
+            inputAmount: '',
+            inputDate: '',
         });
     };
 
     return (
-        <form>
+        <form onSubmit={submitHandler}>
             <div className="new-cost__controls">
                 <div className="new-cost__control">
                     <label>Name</label>
-                    <input type="text" onChange={nameChangeHandler} />
+                    <input
+                        type="text"
+                        value={userInput.inputName}
+                        onChange={nameChangeHandler}
+                    />
                 </div>
                 <div className="new-cost__control">
                     <label>Sum</label>
                     <input
                         type="number"
+                        value={userInput.inputAmount}
                         onChange={amountChangeHandler}
                         nim="0.01"
                         step="0.01"
@@ -56,6 +76,7 @@ const CostForm = () => {
                     <label>Date</label>
                     <input
                         type="date"
+                        value={userInput.inputDate}
                         onChange={dateChangeHandler}
                         nim="2023-01-01"
                         step="2023-12-31"
