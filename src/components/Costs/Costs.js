@@ -15,21 +15,21 @@ function Costs(props) {
         <div>
             <Card className="costs">
                 <CostsFilter onChangeYear={onChangeYear} year={selectedYear} />
-                <CostItem
-                    date={props.cost[0].date}
-                    description={props.cost[0].description}
-                    amount={props.cost[0].amount}
-                ></CostItem>
-                <CostItem
-                    date={props.cost[1].date}
-                    description={props.cost[1].description}
-                    amount={props.cost[1].amount}
-                ></CostItem>
-                <CostItem
-                    date={props.cost[2].date}
-                    description={props.cost[2].description}
-                    amount={props.cost[2].amount}
-                ></CostItem>
+                {props.costs
+                    .filter(
+                        (item) =>
+                            selectedYear === item.date.getFullYear().toString()
+                    )
+                    .map((item) => {
+                        return (
+                            <CostItem
+                                key={item.id}
+                                date={item.date}
+                                description={item.description}
+                                amount={item.amount}
+                            />
+                        );
+                    })}
             </Card>
         </div>
     );

@@ -39,7 +39,7 @@ const CostForm = (props) => {
     const submitHandler = (event) => {
         event.preventDefault();
         const costDate = {
-            name: userInput.inputName,
+            description: userInput.inputName,
             amount: userInput.inputAmount,
             date: new Date(userInput.inputDate),
         };
