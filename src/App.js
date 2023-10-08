@@ -35,7 +35,7 @@ function App() {
     return (
         <div>
             <NewCost onAddCost={addCostHandler} />
-            <Costs costs={costs}></Costs>{' '}
+            <Costs costs={costs}></Costs>
         </div>
     );
 }
