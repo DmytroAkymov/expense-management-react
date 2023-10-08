@@ -6,7 +6,7 @@ const CostList = (props) => {
         return cost.date.getFullYear().toString() === props.year;
     });
     let costsContent = (
-        <p className="cost-list cost-list__fallback">No expenses this year</p>
+        <h2 className="cost-list__fallback">No expenses this year</h2>
     );
     if (filteredCosts.length > 0) {
         costsContent = filteredCosts.map((item) => {
@@ -21,7 +21,7 @@ const CostList = (props) => {
         });
     }
 
-    return costsContent;
+    return <ul className="cost-list">{costsContent}</ul>;
 };
 
 export default CostList;

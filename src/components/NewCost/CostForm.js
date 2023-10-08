@@ -43,7 +43,7 @@ const CostForm = (props) => {
             amount: userInput.inputAmount,
             date: new Date(userInput.inputDate),
         };
-        props.OnSaveCostData(costDate);
+        props.onSaveCostData(costDate);
         setUserInput({
             inputName: '',
             inputAmount: '',
@@ -84,6 +84,9 @@ const CostForm = (props) => {
                 </div>
                 <div className="new-cost__actions">
                     <button type="submit">Add expense</button>
+                    <button type="button" onClick={props.cancelCostHandler}>
+                        Сlear form
+                    </button>
                 </div>
             </div>
         </form>
